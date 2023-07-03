@@ -163,8 +163,7 @@ const CommentLayout: FC = ({ children }) => {
                                         <CommentPanel
                                             key={panelId}
                                             quote={quote}
-                                            panel_id={panelId}
-                                            position={position}
+                                            panelId={panelId}
                                             username={username}
                                             replyList={panelData}
                                             active={panelId === activeId}

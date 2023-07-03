@@ -70,28 +70,30 @@ const CommentWrapper = ({ children, ...rest }: TCommentWrapperProps) => {
     }, [focusIds, activeId]);
 
     return (
-        <Trigger
-            popup={() => <CommentWrapperTools {...rest} />}
-            trigger="hover"
-            getPopupContainer={(node) => {
-                return node.parentNode as Element;
-            }}
-            autoFitPosition={false}
-            autoFixPosition={false}
-            popupAlign={{
-                right: [-45, 5],
-            }}
-            position="rt"
-        >
-            {cloneElement(children as ReactElement, {
-                id: `${ID_PREFIX}wrapper-${position}`,
-                className: cx(
-                    'comment-wrapper',
-                    (children as ReactElement).props.className,
-                    selected ? 'comment-wrapper-selected' : ''
-                ),
-            })}
-        </Trigger>
+        <>
+            <Trigger
+                popup={() => <CommentWrapperTools {...rest} />}
+                trigger="hover"
+                getPopupContainer={(node) => {
+                    return node.parentNode as Element;
+                }}
+                autoFitPosition={false}
+                autoFixPosition={false}
+                popupAlign={{
+                    right: [-45, 5],
+                }}
+                position="rt"
+            >
+                {cloneElement(children as ReactElement, {
+                    id: `${ID_PREFIX}wrapper-${position}`,
+                    className: cx(
+                        'comment-wrapper',
+                        (children as ReactElement).props.className,
+                        selected ? 'comment-wrapper-selected' : ''
+                    ),
+                })}
+            </Trigger>
+        </>
     );
 };
 

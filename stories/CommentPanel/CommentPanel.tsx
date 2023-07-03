@@ -4,7 +4,7 @@ import CCommentPanel from '../../src/components/CommentPanel'
 import "@arco-design/web-react/dist/css/arco.css";
 import '../../src/style/index.css';
 import { CommentPanelReplyItem } from '../../src/types/CommentVO';
-import { EStatus } from '../../src/types/CommentDTO'
+import { EStatus } from '../../src/types/CommentDTO';
 export const REPLY_CONTENT =
     '[{"type":"paragraph","children":[{"text":"这里的数字含义没有看明白"}]},{"type":"paragraph","children":[{"text":"1. 为什么是负数"}]},{"type":"paragraph","children":[{"text":"2. 看着格式不对"}]}]';
 export const REPLY_ITEM: CommentPanelReplyItem = {
@@ -20,12 +20,12 @@ export const REPLY_ITEM: CommentPanelReplyItem = {
 };
 export const defaultProps = {
     quote: "这是个测试",
-    panel_id: "test",
+    panelId: "test",
     position: "test",
     username: "guomingfei"
 }
 
-export const CommentItem = (props) => {
+export const CommentPanel = (props) => {
     const [active, setActive] = useState(false);
     const [replyList, setReplyList] = useState([REPLY_ITEM]);
     return (
@@ -52,10 +52,11 @@ export const CommentItem = (props) => {
     )
 }
 
-CommentItem.propTypes = {
+
+CommentPanel.propTypes = {
     username: PropTypes.string,
     date: PropTypes.number,
     content: PropTypes.string
 }
 
-CommentItem.defaultProps = defaultProps
+CommentPanel.defaultProps = defaultProps

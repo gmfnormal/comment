@@ -11,6 +11,7 @@ import ReplyIcon from '../../static/reply.svg';
 import ReplyIconHover from '../../static/reply_hover.svg';
 import { useHover } from 'ahooks';
 import { ID_PREFIX } from '../../constants';
+import { nanoid } from 'nanoid';
 
 const Reply = (props: ReplyProps) => {
     const ref = useRef(null);
@@ -32,7 +33,7 @@ export default (props: Props) => {
         quote,
         replyList,
         classNames,
-        panel_id,
+        panelId = nanoid(),
         username,
         active,
         focus,
@@ -58,7 +59,7 @@ export default (props: Props) => {
                 isSelect ? 'comment-panel comment-panel-active' : 'comment-panel',
                 classNames
             )}
-            id={`${ID_PREFIX}${panel_id}_panel`}
+            id={`${ID_PREFIX}${panelId}_panel`}
             onClick={() => {
                 onClick?.();
             }}
@@ -82,7 +83,7 @@ export default (props: Props) => {
                                         className="reply-list-action-reply"
                                         onClick={() => {
                                             setReplyId(id);
-                                            onActive?.(panel_id);
+                                            onActive?.(panelId);
                                         }}
                                     />
                                 </Tooltip>
@@ -103,7 +104,7 @@ export default (props: Props) => {
                     <span
                         className="comment-panel__placeholder__text"
                         onClick={() => {
-                            onActive?.(panel_id);
+                            onActive?.(panelId);
                         }}
                     >
                         回复...
@@ -115,10 +116,10 @@ export default (props: Props) => {
                             ? 'comment-panel__placeholder__edit'
                             : 'comment-panel__placeholder__edit__hidden'
                     }
-                    id={`${ID_PREFIX}${panel_id}_edit`}
+                    id={`${ID_PREFIX}${panelId}_edit`}
                 >
                     <Edit
-                        key={panel_id}
+                        key={panelId}
                         ref={editRef}
                         onEnter={async ({ value, success, fail }) => {
                             try {

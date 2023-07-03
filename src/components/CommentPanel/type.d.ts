@@ -6,8 +6,7 @@ export interface ReplyParams {
 }
 export type Props = {
     quote: string;
-    position: string;
-    panel_id: string;
+    panelId?: string;
     username: string;
     replyList: CommentPanelReplyItem[];
     active?: boolean;

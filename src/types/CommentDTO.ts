@@ -1,4 +1,4 @@
-export declare enum EStatus {
+export enum EStatus {
     'Show' = 1
 }
 export type ReplyItem = {
@@ -25,5 +25,5 @@ export type ReplyItem = {
     /** 创建时间 */
     created_at: number;
     /** 更新时间 */
-    updated_at: number;
-};
+    updated_at: number
+}

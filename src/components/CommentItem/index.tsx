@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import Edit, { InitialValue } from '../Edit';
-import Dayjs from 'dayjs';
+import { getCalendarTime } from '../../utils/common'
 import { Props } from './type';
 import { safeJsonParse } from '../../utils/common'
 import { useHover } from 'ahooks';
@@ -16,7 +16,7 @@ export default (props: Props) => {
                 {avatar ?? <DefaultAvatar username={username} />}
                 {date && (
                     <span className="comment-item-info-date">
-                        {Dayjs(Number(`${date}000`)).format('YYYY年MM月DD日 HH:mm')}
+                        {getCalendarTime(`${date}000`)}
                     </span>
                 )}
                 {hover && content && moreAction}

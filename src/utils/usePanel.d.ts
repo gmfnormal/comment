@@ -6,7 +6,7 @@ export declare const getSum: (data: Record<string, ReplyItem[]>, positionList: s
 export declare const checkInitStatus: (panelData: ReplyItem[]) => boolean;
 export declare const getPanelId: (data: Record<string, ReplyItem[]>, position: string) => any;
 /**
- * 接入方需要保证根节点是root，先知的body高度并不是全屏高度
+ * 接入方需要保证根节点是root
  * 结构不变的情况下滚动函数，慎改
  * @param activeId 定位的元素
  */

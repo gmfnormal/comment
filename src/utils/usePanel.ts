@@ -2,7 +2,7 @@ import { INIT_ID } from '../constants';
 import { ReplyItem } from '../types/CommentDTO';
 import { ReplyType } from '../types/CommentVO';
 import { LAYOUT_ID, SCROLL_DRAWER_ID, ID_PREFIX } from '../constants';
-// 创建时间排序，所以顺序一定对
+
 export const getPanelData = (item: ReplyItem[]): Record<string, ReplyItem[]> =>
     item?.reduce((pre, cur) => {
         const { panel_id } = cur;
@@ -55,7 +55,7 @@ export const getPanelId = (data: Record<string, ReplyItem[]>, position: string) 
     return panelId;
 };
 /**
- * 接入方需要保证根节点是root，先知的body高度并不是全屏高度
+ * 接入方需要保证根节点是root
  * 结构不变的情况下滚动函数，慎改
  * @param activeId 定位的元素
  */

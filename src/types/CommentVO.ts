@@ -7,6 +7,7 @@ export type CommentPanelReplyItem = Partial<ReplyItem>;
 export type UseCommentPanelListProps = {
     identifier: string;
     username: string;
+    useIndexedDB?: boolean
 };
 
 export type ReplyType = 'add' | 'reply' | 'delete';
@@ -41,6 +42,7 @@ export type TCommentContext = {
 export type TCommentProviderProps = {
     identifier: string;
     username: string;
+    useIndexedDB?: boolean
     onError?: (e: any) => void;
 };
 

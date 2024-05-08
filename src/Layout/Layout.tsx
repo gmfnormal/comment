@@ -8,8 +8,8 @@ import CommentPanel from '../components/CommentPanel';
 import { getSum, checkInitStatus, scrollScreen } from '../utils/usePanel';
 import { LAYOUT_ID, DRAWER_ID, SCROLL_DRAWER_ID, SCROLL_AREA_ID } from '../constants';
 import './styles/index.less';
-import '../style/index.less';
-import { EStatus } from '@/types/CommentDTO';
+import '../style/index.css';
+import { EStatus } from '../types/CommentDTO';
 const CommentLayout: FC = ({ children }) => {
     const {
         ready,

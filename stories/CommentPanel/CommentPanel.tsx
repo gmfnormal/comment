@@ -8,7 +8,7 @@ import { EStatus } from '../../src/types/CommentDTO';
 export const REPLY_CONTENT =
     '[{"type":"paragraph","children":[{"text":"这里的数字含义没有看明白"}]},{"type":"paragraph","children":[{"text":"1. 为什么是负数"}]},{"type":"paragraph","children":[{"text":"2. 看着格式不对"}]}]';
 export const REPLY_ITEM: CommentPanelReplyItem = {
-    username: '郭明飞',
+    username: 'Usr',
     email: 'gmfnormal@gmail.com',
     identifier: 'test',
     position: 'test',

@@ -9,7 +9,6 @@ export const safeJsonParse = (v: string) => {
 }
 export const getDate = () => parseInt(`${new Date().valueOf() / 1000}`)
 
-// TODO 调整日期
 export const getCalendarTime = (time: string | number) => {
     dayjs.extend(calendar);
     return dayjs(Number(time)).calendar(null, {

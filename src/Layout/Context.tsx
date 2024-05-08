@@ -1,6 +1,7 @@
-import React, { createContext, FC, useState } from 'react';
+import React, { createContext, FC, useState, useEffect } from 'react';
 import { TDrawerContext, TCommentContext, TCommentProviderProps } from '../types/CommentVO';
 import useCommentPanelList from '../hooks/useCommentPanelData';
+import CommentDB from '../service/db';
 export const DrawerContext = createContext<TDrawerContext>({
     setDrawerOpen: () => { },
     isDrawerOpen: false,
@@ -24,7 +25,11 @@ export const DrawerProvider: FC = ({ children }) => {
 export const CommentContext = createContext<TCommentContext>({} as unknown as TCommentContext);
 
 const CommentProvider: FC<TCommentProviderProps> = ({ children, ...rest }) => {
-    const { identifier, username } = rest;
+    const { identifier, username, useIndexedDB } = rest;
+    if (useIndexedDB) {
+        const dBInstance = new CommentDB();
+        (window as any).__commentDbInstance = dBInstance;
+    }
     const [
         { ready, success, error },
         { data, activeId, positionList, focusIds },
@@ -40,7 +45,15 @@ const CommentProvider: FC<TCommentProviderProps> = ({ children, ...rest }) => {
     ] = useCommentPanelList({
         identifier,
         username,
+        useIndexedDB,
     });
+
+    useEffect(() => {
+        if (useIndexedDB) {
+            const dBInstance = new CommentDB();
+            (window as any).__commentDbInstance = dBInstance;
+        }
+    }, [])
 
     return (
         <CommentContext.Provider
